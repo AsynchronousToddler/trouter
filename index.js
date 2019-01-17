@@ -1,7 +1,9 @@
 const { exec, match, parse } = require('matchit');
+const { EventEmitter } = require('events');
 
-class Trouter {
+class Trouter extends EventEmitter {
 	constructor(opts) {
+		super();
 		this.opts = opts || {};
 		this.routes = {};
 		this.handlers = {};
